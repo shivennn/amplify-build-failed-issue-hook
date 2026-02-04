@@ -13,7 +13,10 @@
     },
     "categories": {
       "function": {
-        "S3Trigger332680be": {}
+        "S3Trigger332680be": {
+          "deploymentBucketName": "amplify-amplifyposthookissue-dev-b6a3e-deployment",
+          "s3Key": "amplify-builds/S3Trigger332680be-515069766336792b5933-build.zip"
+        }
       }
     }
   }
