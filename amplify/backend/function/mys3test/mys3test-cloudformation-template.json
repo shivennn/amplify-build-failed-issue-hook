@@ -49,13 +49,13 @@
             "FunctionName": {
                 "Fn::If": [
                     "ShouldNotCreateEnvResources",
-                    "test2",
+                    "mys3test",
                     {
 
                         "Fn::Join": [
                             "",
                             [
-                                "test2",
+                                "mys3test",
                                 "-",
                                 {
                                     "Ref": "env"
@@ -80,13 +80,13 @@
                 "RoleName": {
                     "Fn::If": [
                         "ShouldNotCreateEnvResources",
-                        "amplifyposthookissueLambdaRole13f80b99",
+                        "amplifyposthookissueLambdaRoleb33962ce",
                         {
 
                             "Fn::Join": [
                                 "",
                                 [
-                                    "amplifyposthookissueLambdaRole13f80b99",
+                                    "amplifyposthookissueLambdaRoleb33962ce",
                                     "-",
                                     {
                                         "Ref": "env"
