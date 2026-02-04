@@ -1,0 +1,9 @@
+{
+  "function": {
+    "S3Trigger332680be": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  }
+}
