@@ -1,0 +1,43 @@
+version: 1
+env:
+  variables:
+    VERSION_NODE_SALESMAPS: 20.15.0
+
+backend:
+  phases:
+    preBuild:
+      commands:
+      - |
+        if [ ! -d amplify/backend/function/S3Trigger332680be/src/ ]; then
+          mkdir -p amplify/backend/function/S3Trigger332680be/src/
+        fi
+      - |
+        set -e
+        for lambda_dir in amplify/backend/function/*; do
+          if [[ -d "$lambda_dir" ]]; then
+            ./scripts/validateEnvFile.sh "$lambda_dir"
+          fi
+        done
+    build:
+      commands:
+      - nvm install $VERSION_NODE_SALESMAPS
+      - nvm use $VERSION_NODE_SALESMAPS
+      - amplifyPush --simple
+
+frontend:
+  phases:
+    preBuild:
+      commands:
+      - nvm install $VERSION_NODE_SALESMAPS
+      - nvm use $VERSION_NODE_SALESMAPS
+      - npm ci
+    build:
+      commands:
+      - npm run build
+  artifacts:
+    baseDirectory: dist
+    files:
+    - '**/*'
+  cache:
+    paths:
+    - node_modules/**/*
